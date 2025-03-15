@@ -129,7 +129,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    font-family: var(--font-poppins);
+    font-family: 'Poppins', sans-serif;
     @apply bg-background text-foreground;
     font-weight: 300;
     color: var(--color-secondary)
