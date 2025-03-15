@@ -1,10 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   output: "export",
   basePath: "/cookmaster",
-  assetPrefix: "/cookmaster/", 
-  trailingSlash: true, 
+  assetPrefix: "/cookmaster/",
+  trailingSlash: true,
 };
 
 export default nextConfig;
