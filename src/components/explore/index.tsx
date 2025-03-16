@@ -89,7 +89,7 @@ const index = ({ data }: { data: Bloc3 }) => {
             <use xlinkHref="/images/icons.svg#icon-arrow-right"></use>
           </svg>
         </a>
-      </div>  
+      </div>
     </div>
   );
 };

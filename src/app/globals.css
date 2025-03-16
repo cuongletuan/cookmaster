@@ -43,14 +43,14 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-primary: rgba(242,84,45,1);
-  --color-primary-50: rgba(242,84,45,0.5);
-  --color-primary-dark: rgba(202,62,27,1);
-  --color-primary-light: rgba(255,237,232,1);
-  --color-secondary: rgba(86,44,44,1);
-  --color-secondary-30: rgba(86,44,44,0.3);
-  --color-variations: rgba(14,149,148);
-  --color-brown: rgba(86,44,44);
+  --color-primary: rgba(242, 84, 45, 1);
+  --color-primary-50: rgba(242, 84, 45, 0.5);
+  --color-primary-dark: rgba(202, 62, 27, 1);
+  --color-primary-light: rgba(255, 237, 232, 1);
+  --color-secondary: rgba(86, 44, 44, 1);
+  --color-secondary-30: rgba(86, 44, 44, 0.3);
+  --color-variations: rgba(14, 149, 148);
+  --color-brown: rgba(86, 44, 44);
 }
 
 :root {
@@ -129,72 +129,75 @@
     @apply border-border outline-ring/50;
   }
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-poppins);
     @apply bg-background text-foreground;
     font-weight: 300;
-    color: var(--color-secondary)
+    color: var(--color-secondary);
   }
-  button svg{
-    @apply text-variations
+  button svg {
+    @apply text-variations;
   }
-  button:hover svg{
-    @apply text-white
+  button:hover svg {
+    @apply text-white;
   }
-  table{
-    @apply w-full border-spacing-2.5 border-separate lg:text-[20px] text-[16px]
+  table {
+    @apply w-full border-spacing-2.5 border-separate lg:text-[20px] text-[16px];
   }
-  table th,  table td{
-    @apply font-medium lg:text-[20px] text-[16px] w-8
+  table th,
+  table td {
+    @apply font-medium lg:text-[20px] text-[16px] w-8;
   }
-  table tbody tr{
-    @apply p-4
+  table tbody tr {
+    @apply p-4;
   }
-  table td{
-    @apply border bg-[#F5F5F5] border-[#CCCCCC] rounded-[10px] relative lg:h-[76px] h-[34px]
+  table td {
+    @apply border bg-[#F5F5F5] border-[#CCCCCC] rounded-[10px] relative lg:h-[76px] h-[34px];
   }
-  table td[aria-selected='true'], table td.rdp-today {
-    @apply bg-[#FFF4F1] border-[#F2542D] text-[#562C2C] py-2
+  table td[aria-selected="true"],
+  table td.rdp-today {
+    @apply bg-[#FFF4F1] border-[#F2542D] text-[#562C2C] py-2;
   }
-  table td::after{
+  table td::after {
     @apply lg:content-['Occupé'] absolute left-0 bottom-0 right-0 text-[#aaa] font-normal
-    content-none
+    content-none;
   }
-  table td[aria-selected='true']::after{
+  table td[aria-selected="true"]::after {
     @apply lg:content-['Libre'] absolute left-0 bottom-0 right-0 text-primary font-normal
-    content-none
+    content-none;
   }
-  table td.day-outside{
-    @apply text-[#ccc]
+  table td.day-outside {
+    @apply text-[#ccc];
   }
-  table td.day-outside[aria-selected='true']{
-    @apply border bg-[#F5F5F5] border-[#CCCCCC]
+  table td.day-outside[aria-selected="true"] {
+    @apply border bg-[#F5F5F5] border-[#CCCCCC];
   }
-  table td.day-outside::after{
-    @apply content-none 
+  table td.day-outside::after {
+    @apply content-none;
   }
-  table td button{
-    @apply lg:pb-7
+  table td button {
+    @apply lg:pb-7;
   }
-  .rdp-month{
-    @apply text-center
+  .rdp-month {
+    @apply text-center;
   }
-  .rdp-month_caption{
-    @apply lg:text-[20px] text-[16px] mb-5
+  .rdp-month_caption {
+    @apply lg:text-[20px] text-[16px] mb-5;
   }
-  .rdp-button_next, .rdp-button_previous{
-    @apply absolute
+  .rdp-button_next,
+  .rdp-button_previous {
+    @apply absolute;
   }
-  .rdp-button_next{
-    @apply right-0
+  .rdp-button_next {
+    @apply right-0;
   }
-  .rdp-months{
-    @apply relative
+  .rdp-months {
+    @apply relative;
   }
-  .rdp-caption_label{
-    @apply font-bold
+  .rdp-caption_label {
+    @apply font-bold;
   }
-  .banner{
+  .banner {
     @apply before:bg-linear-to-t before:to-[rgba(0,0,0,0)] before:from-[rgba(0,0,0,0.3)] before:absolute before:w-full
-    before:h-full before:z-1
+    before:h-full before:z-1;
   }
 }

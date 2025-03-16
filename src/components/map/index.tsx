@@ -8,6 +8,9 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { IconMaps, IconTabs } from "@/const";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(useGSAP);
 
 const RandomPoint = ({
   point,
@@ -27,14 +30,48 @@ const RandomPoint = ({
     const y = Math.floor(Math.random() * (80 - 20 + 1)) + 20;
     setPosition({ left: `${x}%`, top: `${y}%` });
   }, []);
+  useEffect(() => {
+    const icons = document.querySelectorAll(".icon-map");
 
+    icons.forEach((icon) => {
+      icon.addEventListener("mouseenter", () => {
+        gsap.to(icon, {
+          y: -5,
+          repeat: 3,
+          yoyo: true,
+          duration: 0.15,
+          ease: "power1.inOut",
+        });
+      });
+
+      icon.addEventListener("mouseleave", () => {
+        gsap.killTweensOf(icon);
+        gsap.to(icon, { y: 0, duration: 0.2, ease: "power1.out" });
+      });
+    });
+
+    return () => {
+      icons.forEach((icon) => {
+        icon.removeEventListener("mouseenter", () => {});
+        icon.removeEventListener("mouseleave", () => {});
+      });
+    };
+  }, []);
   return (
     <Popover>
       <PopoverTrigger
         className="absolute cursor-pointer"
         style={{ left: position.left, top: position.top }}
       >
-        {!!src && <Image src={src} alt={point.name} width={48} height={57} />}
+        {!!src && (
+          <Image
+            src={src}
+            alt={point.name}
+            width={48}
+            height={57}
+            className="icon-map"
+          />
+        )}
       </PopoverTrigger>
       <PopoverContent>
         <p className="font-medium text-primary">{point.name}</p>
@@ -53,7 +90,10 @@ const Index = ({ data, points }: { data: Bloc2; points: CartePoint[] }) => {
     return res.filter((point) => point.activities.includes(active));
   }, [active, points]);
   return (
-    <div className="w-screen lg:min-h-[666px] bg-[url('/images/bg-map.jpg')] bg-cover bg-no-repeat flex items-center md:items-start justify-center" data-aos="fade-up">
+    <div
+      className="w-screen lg:min-h-[666px] bg-[url('/images/bg-map.jpg')] bg-cover bg-no-repeat flex items-center md:items-start justify-center"
+      data-aos="fade-up"
+    >
       <div className="container mx-auto lg:my-16 my:14 px-4 py-5 lg:py-0 lg:px-[calc(32px)]">
         <div className="py-10">
           <div className="relative border-[1px] border-[#BBB]">
